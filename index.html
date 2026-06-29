@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1c1c1e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Calc</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calculator" role="application" aria-label="Calculator">
+    <section class="display" aria-live="polite">
+      <div class="display__expression" id="expression"></div>
+      <div class="display__value" id="display">0</div>
+    </section>
+
+    <section class="keypad" role="group" aria-label="Calculator keypad">
+      <button class="key key--fn" data-action="clear" aria-label="Clear">AC</button>
+      <button class="key key--fn" data-action="sign" aria-label="Toggle sign">+/−</button>
+      <button class="key key--fn" data-action="percent" aria-label="Percent">%</button>
+      <button class="key key--op" data-action="operator" data-value="/" aria-label="Divide">÷</button>
+
+      <button class="key key--num" data-action="number" data-value="7">7</button>
+      <button class="key key--num" data-action="number" data-value="8">8</button>
+      <button class="key key--num" data-action="number" data-value="9">9</button>
+      <button class="key key--op" data-action="operator" data-value="*" aria-label="Multiply">×</button>
+
+      <button class="key key--num" data-action="number" data-value="4">4</button>
+      <button class="key key--num" data-action="number" data-value="5">5</button>
+      <button class="key key--num" data-action="number" data-value="6">6</button>
+      <button class="key key--op" data-action="operator" data-value="-" aria-label="Subtract">−</button>
+
+      <button class="key key--num" data-action="number" data-value="1">1</button>
+      <button class="key key--num" data-action="number" data-value="2">2</button>
+      <button class="key key--num" data-action="number" data-value="3">3</button>
+      <button class="key key--op" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+      <button class="key key--num key--wide" data-action="number" data-value="0">0</button>
+      <button class="key key--num" data-action="decimal" aria-label="Decimal point">.</button>
+      <button class="key key--eq" data-action="equals" aria-label="Equals">=</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

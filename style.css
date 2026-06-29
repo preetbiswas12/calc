@@ -1,0 +1,174 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #1c1c1e;
+  --color-surface: #2c2c2e;
+  --color-fn: #a5a5a5;
+  --color-fn-text: #1c1c1e;
+  --color-op: #ff9f0a;
+  --color-op-active: #ffffff;
+  --color-num: #333336;
+  --color-num-text: #ffffff;
+  --color-display-text: #ffffff;
+  --color-expression: #8e8e93;
+  --color-eq: #ff9f0a;
+
+  --font-display: -apple-system, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --radius-key: 50%;
+  --radius-wide: 24px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+  color: var(--color-display-text);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+/* ── Display ─────────────────────────────────────────── */
+
+.display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 24px 16px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.display__expression {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  color: var(--color-expression);
+  min-height: 1.5em;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+}
+
+.display__value {
+  font-size: clamp(2.5rem, 12vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+  transition: font-size 120ms ease;
+}
+
+/* ── Keypad ──────────────────────────────────────────── */
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 12px 16px 20px;
+}
+
+.key {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--radius-key);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 80ms ease, transform 60ms ease;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.key:active {
+  filter: brightness(1.3);
+  transform: scale(0.95);
+}
+
+/* Number keys */
+.key--num {
+  background: var(--color-num);
+  color: var(--color-num-text);
+}
+
+/* Function keys (AC, +/−, %) */
+.key--fn {
+  background: var(--color-fn);
+  color: var(--color-fn-text);
+  font-weight: 500;
+}
+
+/* Operator keys (÷ × − +) */
+.key--op {
+  background: var(--color-op);
+  color: #fff;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 500;
+}
+
+.key--op.active {
+  background: var(--color-op-active);
+  color: var(--color-op);
+}
+
+/* Equals key */
+.key--eq {
+  background: var(--color-eq);
+  color: #fff;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 500;
+}
+
+/* Wide zero key */
+.key--wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+  border-radius: var(--radius-wide);
+  justify-content: flex-start;
+  padding-left: 28px;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-height: 580px) {
+  .keypad {
+    gap: 8px;
+    padding: 8px 12px 12px;
+  }
+  .display {
+    padding: 0 16px 8px;
+  }
+}
+
+@media (min-width: 421px) {
+  .keypad {
+    gap: 14px;
+    padding: 16px 20px 24px;
+  }
+}

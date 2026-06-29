@@ -1,0 +1,11 @@
+{
+  "appId": "com.calc.app",
+  "appName": "Calc",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#1c1c1e"
+  }
+}
